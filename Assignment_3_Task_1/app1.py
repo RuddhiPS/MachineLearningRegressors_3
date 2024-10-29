@@ -66,7 +66,9 @@ def create_vocab(tokens):
     return token_to_index, index_to_token, unique_tokens
 
 def load_model_from_drive(model_name: str):
-    with open(f'{model_name}.pkl', 'rb') as f:
+    model_file_path = os.path.join(os.path.dirname(__file__), f'model_name.pkl')
+    st.write("Full path to model file:", model_file_path)
+    with open(model_file_path, 'rb') as f:
         model_loaded = pickle.load(f)
     print('Model loaded successfully!')
     return model_loaded
