@@ -141,7 +141,9 @@ def predict_next_k_words(context, k, token_to_index, index_to_token, model):
 # Streamlit setup:
 
 st.title("Next Word Prediction App")
-vocab_file_path = 'vocab.pkl'  # Update this path as necessary
+# vocab_file_path = 'vocab.pkl'  # Update this path as necessary
+vocab_file_path = os.path.join(os.path.dirname(__file__), 'vocab.pkl')
+st.write("Full path to vocab file:", vocab_file_path)
 
 # Directly load the vocabulary
 with open(vocab_file_path, 'rb') as f:
