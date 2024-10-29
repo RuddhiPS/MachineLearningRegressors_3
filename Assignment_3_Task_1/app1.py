@@ -141,8 +141,10 @@ def predict_next_k_words(context, k, token_to_index, index_to_token, model):
 # Streamlit setup:
 
 st.title("Next Word Prediction App")
+vocab_file_path = 'vocab.pkl'  # Update this path as necessary
 
-with open('vocab.pkl', 'rb') as f:
+# Directly load the vocabulary
+with open(vocab_file_path, 'rb') as f:
     vocab = pickle.load(f)
     token_to_index = vocab
     index_to_token = {idx: token for token, idx in token_to_index.items()}
